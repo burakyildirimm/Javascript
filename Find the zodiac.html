@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang = "en-US">
+	<head>
+		<meta charset = "UTF-8">
+		<meta name = "author" content = "Burak Yıldırım">
+		<meta name = "description" content = "Find the Zodiac Sign">
+		<meta name = "keywords" content = "horoscope,find the zodiac sign">
+		<meta name = "viewport" content = "width=device-width , initial-scale = 1.0">
+
+		<title>Burcunu Bul</title>
+		
+
+		<style>
+			.container	{	width: 350px;
+							height: 300px;
+							margin: 0 auto;
+							text-align: center;
+							margin-top: 15%;
+							background-color: slategrey;
+							border-radius: 5px;
+							box-shadow: 3px 2px 4px black;}
+
+			.select1	{	text-align: left;
+							margin: 80px 60px;
+							position: relative;
+							color: white;
+							font-weight: 900;}
+
+			#day  		{	border-radius: 3px;}
+
+			#month 		{	border-radius: 3px;}
+			
+			.select2	{	text-align: left;
+							margin: -135px 120px;
+							position: relative;
+							color: white;
+							font-weight: 900;
+							margin-left: 130px;}
+
+			button		{	position: absolute;
+							margin: 90px 80px;
+							border-radius: 50px; 
+							width: 65px;
+							height: 65px;
+						 	border: none;
+						 	text-align: center;
+						 	background-color: #42c5f4;
+						 	font-weight: 100;
+						 	color: white;
+						 	outline: none;
+						 	cursor: pointer;
+						 	box-shadow: 2px 2px 5px black;}
+
+			button:active 	{	box-shadow: 1px 1px 0 black;}
+
+			.alert			{	background-color: #4ad67e;
+								padding: 15px;
+								display: none;
+								margin: 0 2px;
+								border-radius: 3px;
+								box-shadow: 0px 1px 3px black;}
+
+			span			{	font-weight: 900;}
+
+		</style>
+	</head>
+
+	<body>
+	
+		<div class = "container">
+			
+			<h1 style="background-color: white;">Find the Zodiac Sign</h1>
+			
+			<div class = "select1">
+				<label for = "day">Day</label><br><br>
+				<select id= "day" autofocus="autofocus" required="required"></select>
+			</div>
+			
+			<div class = "select2">
+				<label for = "month">Month</label><br><br>
+				<select id = "month" required="required"></select>
+			</div>
+
+			<div class = "buton">
+				<button>Calculate</button>
+			</div>
+
+			<div class="alert">
+				<span></span>
+			</div>
+		</div>
+
+		<script>
+		
+		var selectDays = document.querySelector('#day');
+		var selectMonths = document.querySelector('#month');
+		var button = document.querySelector("button");
+		var span = document.querySelector('span');
+		var display = document.querySelector('.alert');
+		var monthArray	= ["Default","January","February","March","April","May","June","July","August","September","October","November","December"];
+
+		for (var i=0; i<31; i++) {
+			var optionDays = document.createElement('option');
+			optionDays.setAttribute('value',i);
+			optionDays.textContent = i;
+			selectDays.appendChild(optionDays);}
+
+		for (z in monthArray) {
+			var optionMonths = document.createElement('option');
+			optionMonths.setAttribute('value',monthArray[z]);
+			optionMonths.textContent = monthArray[z];
+			selectMonths.appendChild(optionMonths);}	
+		
+
+		button.onclick = function()	{
+
+			var value1 = selectDays.value;
+			var value2 = selectMonths.value;
+			
+				switch(value2)	{
+
+					case 'January':
+						if (value1<=20) {span.textContent = 'You are CAPRICORN.'
+										 display.style.display = "block";}
+						else	{span.textContent = 'You are AQUARIUS.'
+								 display.style.display = "block";}
+						break;
+
+					case 'February':
+						if (value1<=18) {span.textContent = 'You are AQUARIUS.'
+										 display.style.display = "block";}
+						else	{span.textContent = 'You are PISCES.'
+					  			 display.style.display = "block";}
+						break;
+
+					case 'March':
+						if (value1<=20) {span.textContent = 'You are PISCES.'
+										 display.style.display = "block";}
+						else	{span.textContent = 'You are ARIES.'
+					 			 display.style.display = "block";}
+						break;
+
+					case 'April':
+						if (value1<=20) {span.textContent = 'You are ARIES.'
+										 display.style.display = "block";}
+						else	{span.textContent = 'You are TAURUS.'
+								 display.style.display = "block";}
+						break;
+
+					case 'May':
+						if (value1<=20) {span.textContent = 'You are TAURUS.'
+										 display.style.display = "block";}
+						else	{span.textContent = 'You are GEMINI.'
+								 display.style.display = "block";}
+						break;
+
+					case 'June':
+						if (value1<=21) {span.textContent = 'You are GEMINI.'
+										 display.style.display = "block";}
+						else	{span.textContent = 'You are CANCER.'
+								 display.style.display = "block";}
+						break;
+
+					case 'July':
+						if (value1<=22) {span.textContent = 'You are CANCER.'
+										 display.style.display = "block";}
+						else	{span.textContent = 'You are LEO.'
+								 display.style.display = "block";}
+						break;
+
+					case 'August':
+						if (value1<=22) {span.textContent = 'You are LEO.'
+										 display.style.display = "block";}
+						else	{span.textContent = 'You are VIRGO.'
+								 display.style.display = "block";}
+						break;
+
+					case 'September':
+						if (value1<=22) {span.textContent = 'You are VIRGO.'
+										 display.style.display = "block";}
+						else	{span.textContent = 'You are LIBRA.'
+								 display.style.display = "block";}
+						break;
+
+					case 'October':
+						if (value1<=23) {span.textContent = 'You are LIBRA.'
+										 display.style.display = "block";}
+						else	{span.textContent = 'You are SCORPIO.'
+					 			 display.style.display = "block";}
+						break;
+
+					case 'November':
+						if (value1<=22) {span.textContent = 'You are SCORPIO.'
+										 display.style.display = "block";}
+						else	{span.textContent = 'You are SAGITTARIUS.'
+								 display.style.display = "block";}
+						break;
+
+					case 'December':
+						if (value1<=21) {span.textContent = 'You are SAGITTARIUS.'
+										 display.style.display = "block";}
+						else	{span.textContent = 'You are CAPRICORN.'
+								 display.style.display = "block";}
+						break;
+
+					default: 
+						span.textContent = 'You can not leave this place empty !'
+						display.style.display = "block";
+					}
+		}
+
+
+		</script>
+
+	</body>
+</html>
