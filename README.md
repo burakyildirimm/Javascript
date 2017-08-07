@@ -1,2 +1,2 @@
 # Javascript
-Burası yalnız javascript ve algoritma kodlarını kapsayacak.
+This will only include JavaScript and algorithm code.
